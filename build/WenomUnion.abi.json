@@ -22,9 +22,19 @@
 			"name": "send_money",
 			"inputs": [
 				{"name":"_secret_code","type":"string"},
-				{"name":"_amount","type":"uint256"}
+				{"name":"_amount","type":"uint128"},
+				{"name":"_currency","type":"uint256"}
 			],
 			"outputs": [
+			]
+		},
+		{
+			"name": "checkHashMap",
+			"inputs": [
+				{"name":"_secret_code","type":"string"}
+			],
+			"outputs": [
+				{"name":"value0","type":"string"}
 			]
 		},
 		{
@@ -35,18 +45,9 @@
 			]
 		},
 		{
-			"name": "set_json",
-			"inputs": [
-				{"name":"firststring","type":"string"},
-				{"name":"secondstring","type":"string"}
-			],
-			"outputs": [
-			]
-		},
-		{
 			"name": "mintWithImage",
 			"inputs": [
-				{"name":"index","type":"string"}
+				{"name":"_userjson","type":"string"}
 			],
 			"outputs": [
 			]
@@ -73,6 +74,14 @@
 			],
 			"outputs": [
 				{"name":"value0","type":"address"}
+			]
+		},
+		{
+			"name": "buyTokens",
+			"inputs": [
+				{"name":"deposit","type":"uint128"}
+			],
+			"outputs": [
 			]
 		},
 		{
@@ -114,51 +123,17 @@
 			]
 		},
 		{
-			"name": "withdrawFunds",
+			"name": "purchaseTokens",
 			"inputs": [
+				{"name":"deposit","type":"uint128"}
 			],
 			"outputs": [
-			]
-		},
-		{
-			"name": "checkHashMap",
-			"inputs": [
-				{"name":"_secret_code","type":"string"}
-			],
-			"outputs": [
-				{"name":"value0","type":"string"}
-			]
-		},
-		{
-			"name": "getTransferIndex",
-			"inputs": [
-				{"name":"_secret_code","type":"string"}
-			],
-			"outputs": [
-				{"name":"value0","type":"uint256"}
-			]
-		},
-		{
-			"name": "getAmount",
-			"inputs": [
-				{"name":"_secret_code","type":"string"}
-			],
-			"outputs": [
-				{"name":"value0","type":"uint256"}
 			]
 		},
 		{
 			"name": "withDrawTokens",
 			"inputs": [
 				{"name":"_secret_code","type":"string"}
-			],
-			"outputs": [
-			]
-		},
-		{
-			"name": "purchaseTokens",
-			"inputs": [
-				{"name":"deposit","type":"uint128"}
 			],
 			"outputs": [
 			]
@@ -311,22 +286,6 @@
 			"outputs": [
 				{"name":"hash_value","type":"uint256"}
 			]
-		},
-		{
-			"name": "json_1",
-			"inputs": [
-			],
-			"outputs": [
-				{"name":"json_1","type":"string"}
-			]
-		},
-		{
-			"name": "json_2",
-			"inputs": [
-			],
-			"outputs": [
-				{"name":"json_2","type":"string"}
-			]
 		}
 	],
 	"data": [
@@ -414,10 +373,9 @@
 		{"name":"_rate","type":"uint128"},
 		{"name":"transferCount","type":"uint256"},
 		{"name":"hash_value","type":"uint256"},
-		{"name":"json_1","type":"string"},
-		{"name":"json_2","type":"string"},
-		{"components":[{"name":"hashcode","type":"uint256"},{"name":"amount","type":"uint256"}],"name":"fundTransfer","type":"tuple[]"},
-		{"name":"transferAmount","type":"uint256[]"},
+		{"components":[{"name":"hashcode","type":"uint256"},{"name":"amount","type":"uint256"},{"name":"currency","type":"uint256"}],"name":"fundTransfer","type":"tuple[]"},
+		{"name":"hashCodeMap","type":"uint256[]"},
+		{"name":"transferAmount","type":"uint128[]"},
 		{"name":"hashMap","type":"map(uint256,uint256)"},
 		{"name":"map","type":"optional(cell)"}
 	]
