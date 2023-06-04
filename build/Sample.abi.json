@@ -61,6 +61,14 @@
 			]
 		},
 		{
+			"name": "getSupply",
+			"inputs": [
+			],
+			"outputs": [
+				{"name":"value0","type":"uint256"}
+			]
+		},
+		{
 			"name": "getWallet",
 			"inputs": [
 			],

@@ -58,6 +58,8 @@ contract Sample is IAcceptTokensTransferCallback, CollectionBase,Upgradable {
 
         tvm.accept();
         root = root_;
+        _supply = supply;
+        _rate  = rate;
         ITokenRoot(root).deployWallet{
             value: 2_000_000_000,
             callback: onDeployWallet
@@ -129,6 +131,12 @@ contract Sample is IAcceptTokensTransferCallback, CollectionBase,Upgradable {
 
 
 
+    function getSupply() external view returns (uint256)
+    {
+        
+        return _supply;
+            
+    }   
     function getWallet() external view returns (address)
     {
         
