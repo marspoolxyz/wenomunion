@@ -27,4 +27,4 @@ yarn-error.log*
 firebase.json
 .firebaserc
 .firebase
-
+.temp
