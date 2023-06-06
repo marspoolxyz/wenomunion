@@ -105,11 +105,7 @@ contract Sample is IAcceptTokensTransferCallback, CollectionBase,Upgradable {
         emit HashChange(hash_value);
 
     }
-
-
-
-
-    
+   
 
 
     function mint() external internalMsg {

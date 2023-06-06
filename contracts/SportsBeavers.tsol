@@ -1,0 +1,100 @@
+pragma ever-solidity >= 0.62.0;
+pragma AbiHeader expire;
+pragma AbiHeader pubkey;
+
+import "tip3/contracts/interfaces/IAcceptTokensTransferCallback.sol";
+import "tip3/contracts/interfaces/ITokenRoot.sol";
+import "tip3/contracts/interfaces/ITokenWallet.sol";
+
+import "tip4/contracts/CollectionBase.tsol";
+
+ 
+
+ 
+
+contract SportsBeavers is IAcceptTokensTransferCallback, CollectionBase {
+    uint static nonce;
+    uint256 static owner;
+
+    address root;
+    address wallet;  // Used for transfer
+
+    string public json_1;
+    string public json_2;
+
+
+    event StateChange(uint _state);
+    event HashChange(uint256 _hash_value);
+
+    event ThankYou(address sender, uint128 amount);
+    event NewWallet(address some);
+
+    constructor(
+        uint _state, address root_, 
+        uint256 supply,uint128 rate,
+        TvmCell codeNft, 
+        TvmCell codeIndex,
+        TvmCell codeIndexBasis,
+        string json) 
+        
+
+    CollectionBase(codeNft, codeIndex, codeIndexBasis, json) public {
+
+        tvm.accept();
+        root = root_;
+        ITokenRoot(root).deployWallet{
+            value: 2_000_000_000,
+            callback: onDeployWallet
+        }(this, 1_000_000_000);
+       
+    }
+
+    function mint() external internalMsg {
+        _mintNft(_json);
+    }
+
+    function mintWithImage(string index) external internalMsg {
+
+        string nft_json = json_1 + index + json_2;
+        _mintNft(nft_json);
+    }
+
+    function set_json(string firststring, string secondstring) external internalMsg 
+    {
+            json_1 = firststring;
+            json_2 = secondstring;
+    }
+
+    function onDeployWallet(address _wallet) public {
+        wallet = _wallet;
+    }
+ 
+    function getWallet() external view returns (address)
+    {
+        
+        return wallet;
+            
+    }    
+
+
+
+    function onAcceptTokensTransfer(
+        address tokenRoot,
+        uint128 amount,
+        address sender,
+        address senderWallet,
+        address remainingGasTo,
+        TvmCell payload
+    ) external override {
+        require(msg.sender == wallet, 103);
+        require(tokenRoot == root, 103);
+
+        emit ThankYou(sender, amount);
+
+        // disables warnings
+        tokenRoot;
+        senderWallet;
+        remainingGasTo;
+        payload;
+    }
+}

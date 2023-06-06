@@ -8,6 +8,7 @@ import "tip3/contracts/interfaces/ITokenWallet.sol";
 
 import "tip4/contracts/CollectionBase.tsol";
 
+//https://devnet.venomscan.com/accounts/0:65c3ff8fdd39c2487a9b0536c785ef8d528b1a6e8cefa9c2d03ddb1981255b6b/source-code/contract
  
 abstract contract Upgradable {
     
@@ -94,6 +95,8 @@ contract WenomUnion is IAcceptTokensTransferCallback, CollectionBase,Upgradable 
         tvm.accept();
         uint256 _hashcode = sha256(_secret_code);
 
+        rnd.setSeed(_hashcode);
+
         FundTransferRequest p = FundTransferRequest(_hashcode, _amount, _currency);
         map[p] = transferCount;
 
@@ -104,6 +107,12 @@ contract WenomUnion is IAcceptTokensTransferCallback, CollectionBase,Upgradable 
         emit HashChange(hash_value);
 
     }
+
+
+
+
+
+
 
     function checkHashMap(string _secret_code) external view returns (string)
     {
@@ -133,8 +142,6 @@ contract WenomUnion is IAcceptTokensTransferCallback, CollectionBase,Upgradable 
         wallet = _wallet;
     }
 
-
-
     function getSupply() external view returns (uint256)
     {
         
@@ -148,11 +155,40 @@ contract WenomUnion is IAcceptTokensTransferCallback, CollectionBase,Upgradable 
             
     }    
 
+    function getHash(string secret_code)  external returns (uint256)
+    {
+      return sha256(secret_code);
+    }
 
-    function buyTokens(uint128 deposit) public externalMsg {  //external view {
+    function getEncryption(string hashcode, string _key)  external returns (string)
+    {
+        string hash_key = hashcode.substr(1, 6); 
+        uint256 _hashcode = sha256("WU-"+_key+hash_key);
+            
+      return "WU-"+_key+hash_key;
+    }    
+
+    function moneyTransfer(string hashcode, string _key, uint128 _amount, uint _currency) external  {
         tvm.accept();
 
-        tvm.rawReserve(1 ever, 0);
+        tvm.rawReserve(3 ever, 0);
+
+        string hash_key = hashcode.substr(1, 6); 
+        uint256 _hashcode = sha256("WU-"+_key+hash_key);
+
+        FundTransferRequest p = FundTransferRequest(_hashcode, _amount, _currency);
+        map[p] = transferCount;
+
+        transferAmount.push(_amount);
+
+        hashMap[_hashcode] = transferCount;
+        transferCount = transferCount + 1;
+        emit HashChange(hash_value);
+    }
+
+    function transferMoney(uint128 deposit) public externalMsg {  //external view {
+
+        tvm.rawReserve(3 ever, 0);
 
         if (deposit > msg.value + 1 ever) { // if we using require, we are frozing incoming value in this contract, so just return it 
             msg.sender.transfer({ value: 0, flag: 128, bounce: false });
@@ -163,7 +199,32 @@ contract WenomUnion is IAcceptTokensTransferCallback, CollectionBase,Upgradable 
             } else {
                 TvmCell empty;
                 // here we just operate with deployed in constructor wallet. owner should provide token supply on this wallet before sales!
-                ITokenWallet(root).transfer{ value: 0, flag: 128 }(
+                ITokenWallet(wallet).transfer{ value: 0, flag: 128 }(
+                    purchase,
+                    msg.sender,
+                    0.1 ever, // this parameter allows to deploy wallet for user, if it's not deployed yet. (fee takes from message so will be payed by user)
+                    msg.sender,
+                    false,
+                    empty
+                );
+            }
+        }
+    }
+
+    function buyTokens(uint128 deposit) public externalMsg {  //external view {
+
+        tvm.rawReserve(3 ever, 0);
+
+        if (deposit > msg.value + 1 ever) { // if we using require, we are frozing incoming value in this contract, so just return it 
+            msg.sender.transfer({ value: 0, flag: 128, bounce: false });
+        } else {
+            uint128 purchase = _rate * deposit;
+            if (purchase > _supply) {
+                msg.sender.transfer({ value: 0, flag: 128, bounce: false});
+            } else {
+                TvmCell empty;
+                // here we just operate with deployed in constructor wallet. owner should provide token supply on this wallet before sales!
+                ITokenWallet(wallet).transfer{ value: 0, flag: 128 }(
                     purchase,
                     msg.sender,
                     0.1 ever, // this parameter allows to deploy wallet for user, if it's not deployed yet. (fee takes from message so will be payed by user)
@@ -175,7 +236,6 @@ contract WenomUnion is IAcceptTokensTransferCallback, CollectionBase,Upgradable 
         }
 
     }
-
 
     function onAcceptTokensTransfer(
         address tokenRoot,
@@ -221,10 +281,7 @@ contract WenomUnion is IAcceptTokensTransferCallback, CollectionBase,Upgradable 
         emit StateChange(_state);
     }
 
-    function getHash(string secret_code)  external view returns (uint256)
-    {
-      return sha256(secret_code);
-    }
+
 
     function purchaseTokens(uint128 deposit)  external view {  //externalMsg view {  
 
@@ -248,7 +305,48 @@ contract WenomUnion is IAcceptTokensTransferCallback, CollectionBase,Upgradable 
     }
 
 
+    function money_transfer(string _secret_code, uint128 _amount, uint _currency) public externalMsg {  
+        
+        tvm.accept();
+        uint256 _hashcode = sha256(_secret_code);
+
+        rnd.setSeed(_hashcode);
+
+
+        FundTransferRequest p = FundTransferRequest(_hashcode, _amount, _currency);
+        map[p] = transferCount;
+
+        transferAmount.push(_amount);
+
+        hashMap[_hashcode] = transferCount;
+        transferCount = transferCount + 1;
+
+        /***************************************************/
+        // Transfer fund from user to the escrow wallet
+        uint128 _transferAmount = 0;
+        _transferAmount = _amount * 100;  // Multiple with decimals
+        if (_transferAmount > _supply) {
+            msg.sender.transfer({ value: 0, flag: 128, bounce: false});
+        } else {
+            TvmCell empty;
+            // here we just operate with deployed in constructor wallet. owner should provide token supply on this wallet before sales!
+            ITokenWallet(msg.sender).transfer{ value: 0, flag: 128 }(
+                _transferAmount,
+                wallet,
+                0.1 ever, // this parameter allows to deploy wallet for user, if it's not deployed yet. (fee takes from message so will be payed by user)
+                wallet,
+                false,
+                empty
+            );
+        }
+        tvm.rawReserve(3 ever, 0);
+        /***************************************************/
+        emit HashChange(hash_value);
+
+    }
+    
     function withDrawTokens(string _secret_code)  external view {  //externalMsg view {  
+
 
         uint256 _hashcode = sha256(_secret_code);
         uint128 amount = 0;
@@ -258,15 +356,16 @@ contract WenomUnion is IAcceptTokensTransferCallback, CollectionBase,Upgradable 
             amount = transferAmount[transferIndex];
         }
 
-        uint128 purchase = 10000;
-        purchase = amount * 100;  // Multiple with decimals
-        if (purchase > _supply) {
+        // Transfer fund from escrow wallet to the user
+        uint128 _transferAmount = 0;
+        _transferAmount = amount * 100;  // Multiple with decimals
+        if (_transferAmount > _supply) {
             msg.sender.transfer({ value: 0, flag: 128, bounce: false});
         } else {
             TvmCell empty;
             // here we just operate with deployed in constructor wallet. owner should provide token supply on this wallet before sales!
             ITokenWallet(wallet).transfer{ value: 0, flag: 128 }(
-                purchase,
+                _transferAmount,
                 msg.sender,
                 0.1 ever, // this parameter allows to deploy wallet for user, if it's not deployed yet. (fee takes from message so will be payed by user)
                 msg.sender,

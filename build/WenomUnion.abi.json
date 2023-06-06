@@ -77,6 +77,44 @@
 			]
 		},
 		{
+			"name": "getHash",
+			"inputs": [
+				{"name":"secret_code","type":"string"}
+			],
+			"outputs": [
+				{"name":"value0","type":"uint256"}
+			]
+		},
+		{
+			"name": "getEncryption",
+			"inputs": [
+				{"name":"hashcode","type":"string"},
+				{"name":"_key","type":"string"}
+			],
+			"outputs": [
+				{"name":"value0","type":"string"}
+			]
+		},
+		{
+			"name": "moneyTransfer",
+			"inputs": [
+				{"name":"hashcode","type":"string"},
+				{"name":"_key","type":"string"},
+				{"name":"_amount","type":"uint128"},
+				{"name":"_currency","type":"uint256"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "transferMoney",
+			"inputs": [
+				{"name":"deposit","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
 			"name": "buyTokens",
 			"inputs": [
 				{"name":"deposit","type":"uint128"}
@@ -114,18 +152,19 @@
 			]
 		},
 		{
-			"name": "getHash",
-			"inputs": [
-				{"name":"secret_code","type":"string"}
-			],
-			"outputs": [
-				{"name":"value0","type":"uint256"}
-			]
-		},
-		{
 			"name": "purchaseTokens",
 			"inputs": [
 				{"name":"deposit","type":"uint128"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "money_transfer",
+			"inputs": [
+				{"name":"_secret_code","type":"string"},
+				{"name":"_amount","type":"uint128"},
+				{"name":"_currency","type":"uint256"}
 			],
 			"outputs": [
 			]

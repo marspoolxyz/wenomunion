@@ -287,7 +287,7 @@ ISNULL
 IFREF {
 	CALL $c4_to_c7$
 }
-.loc ../contracts/Sample.tsol, 115
+.loc ../contracts/Sample.tsol, 111
 ENDS
 .loc ../contracts/Sample.tsol, 0
 CALLREF {
@@ -300,12 +300,12 @@ CALLREF {
 THROW 0
 
 .macro mint_1249c58b_internal_macro
-.loc ../contracts/Sample.tsol, 115
+.loc ../contracts/Sample.tsol, 111
 DEPTH
 ADDCONST -5
 PICK
 THROWIF 72
-.loc ../contracts/Sample.tsol, 116
+.loc ../contracts/Sample.tsol, 112
 GETGLOB 13
 CALLREF {
 	CALL $_mintNft_4d0b706c_internal_macro$
@@ -321,7 +321,7 @@ ISNULL
 IFREF {
 	CALL $c4_to_c7$
 }
-.loc ../contracts/Sample.tsol, 119
+.loc ../contracts/Sample.tsol, 115
 LDREF
 LDREF
 ENDS
@@ -336,15 +336,15 @@ CALLREF {
 THROW 0
 
 .macro set_json_f08baa21_internal_macro
-.loc ../contracts/Sample.tsol, 119
+.loc ../contracts/Sample.tsol, 115
 DEPTH
 ADDCONST -5
 PICK
 THROWIF 72
-.loc ../contracts/Sample.tsol, 121
+.loc ../contracts/Sample.tsol, 117
 SWAP
 SETGLOB 29
-.loc ../contracts/Sample.tsol, 122
+.loc ../contracts/Sample.tsol, 118
 SETGLOB 30
 .loc ../contracts/Sample.tsol, 0
 
@@ -357,7 +357,7 @@ ISNULL
 IFREF {
 	CALL $c4_to_c7$
 }
-.loc ../contracts/Sample.tsol, 125
+.loc ../contracts/Sample.tsol, 121
 LDREF
 ENDS
 .loc ../contracts/Sample.tsol, 0
@@ -371,12 +371,12 @@ CALLREF {
 THROW 0
 
 .macro mintWithImage_107f4d7b_internal_macro
-.loc ../contracts/Sample.tsol, 125
+.loc ../contracts/Sample.tsol, 121
 DEPTH
 ADDCONST -5
 PICK
 THROWIF 72
-.loc ../contracts/Sample.tsol, 127
+.loc ../contracts/Sample.tsol, 123
 GETGLOB 29
 SWAP
 CALLREF {
@@ -386,7 +386,7 @@ GETGLOB 30
 CALLREF {
 	CALL $concatenateStrings_macro$
 }
-.loc ../contracts/Sample.tsol, 128
+.loc ../contracts/Sample.tsol, 124
 CALLREF {
 	CALL $_mintNft_4d0b706c_internal_macro$
 }
@@ -401,7 +401,7 @@ ISNULL
 IFREF {
 	CALL $c4_to_c7$
 }
-.loc ../contracts/Sample.tsol, 131
+.loc ../contracts/Sample.tsol, 127
 OVER
 PUSHCONT {
 	LDREF
@@ -426,7 +426,7 @@ THROW 0
 CALL $onDeployWallet_65bf83eb_internal_macro$
 
 .macro onDeployWallet_65bf83eb_internal_macro
-.loc ../contracts/Sample.tsol, 132
+.loc ../contracts/Sample.tsol, 128
 SETGLOB 23
 .loc ../contracts/Sample.tsol, 0
 
@@ -439,7 +439,7 @@ ISNULL
 IFREF {
 	CALL $c4_to_c7$
 }
-.loc ../contracts/Sample.tsol, 137
+.loc ../contracts/Sample.tsol, 133
 ENDS
 .loc ../contracts/Sample.tsol, 0
 CALLREF {
@@ -473,7 +473,7 @@ IFREF {
 THROW 0
 
 .macro getSupply_6c9c2faf_internal_macro
-.loc ../contracts/Sample.tsol, 139
+.loc ../contracts/Sample.tsol, 135
 GETGLOB 25
 .loc ../contracts/Sample.tsol, 0
 
@@ -486,7 +486,7 @@ ISNULL
 IFREF {
 	CALL $c4_to_c7$
 }
-.loc ../contracts/Sample.tsol, 141
+.loc ../contracts/Sample.tsol, 137
 ENDS
 .loc ../contracts/Sample.tsol, 0
 CALLREF {
@@ -524,7 +524,7 @@ IFREF {
 THROW 0
 
 .macro getWallet_13299604_internal_macro
-.loc ../contracts/Sample.tsol, 144
+.loc ../contracts/Sample.tsol, 140
 GETGLOB 23
 .loc ../contracts/Sample.tsol, 0
 
@@ -537,7 +537,7 @@ ISNULL
 IFREF {
 	CALL $c4_to_c7$
 }
-.loc ../contracts/Sample.tsol, 148
+.loc ../contracts/Sample.tsol, 144
 OVER
 PUSHCONT {
 	LDREF
@@ -572,18 +572,18 @@ CALLREF {
 THROW 0
 
 .macro onAcceptTokensTransfer_e63f2284_internal_macro
-.loc ../contracts/Sample.tsol, 156
+.loc ../contracts/Sample.tsol, 152
 BLKDROP 3
 GETGLOB 9
 GETGLOB 23
 SDEQ
 THROWIFNOT 103
-.loc ../contracts/Sample.tsol, 157
+.loc ../contracts/Sample.tsol, 153
 ROT
 GETGLOB 22
 SDEQ
 THROWIFNOT 103
-.loc ../contracts/Sample.tsol, 159
+.loc ../contracts/Sample.tsol, 155
 PUSHSLICE xc00000000000000000000000006c85479e
 NEWC
 STSLICE
@@ -603,7 +603,7 @@ ISNULL
 IFREF {
 	CALL $c4_to_c7$
 }
-.loc ../contracts/Sample.tsol, 168
+.loc ../contracts/Sample.tsol, 164
 OVER
 PUSHCONT {
 	LDREF
@@ -628,13 +628,13 @@ THROW 0
 CALL $setStateByOwner_97913b60_internal_macro$
 
 .macro setStateByOwner_97913b60_internal_macro
-.loc ../contracts/Sample.tsol, 168
+.loc ../contracts/Sample.tsol, 164
 DEPTH
 ADDCONST -5
 PICK
 EQINT -1
 THROWIFNOT 71
-.loc ../contracts/Sample.tsol, 169
+.loc ../contracts/Sample.tsol, 165
 GETGLOB 5
 DUP
 ISNULL
@@ -646,9 +646,9 @@ IF
 GETGLOB 21
 EQUAL
 THROWIFNOT 101
-.loc ../contracts/Sample.tsol, 170
+.loc ../contracts/Sample.tsol, 166
 ACCEPT
-.loc ../contracts/Sample.tsol, 171
+.loc ../contracts/Sample.tsol, 167
 CALLREF {
 	CALL $setState_a9e966b7_internal_macro$
 }
@@ -663,7 +663,7 @@ ISNULL
 IFREF {
 	CALL $c4_to_c7$
 }
-.loc ../contracts/Sample.tsol, 174
+.loc ../contracts/Sample.tsol, 170
 LDREF
 ENDS
 .loc ../contracts/Sample.tsol, 0
@@ -681,20 +681,20 @@ THROW 0
 CALL $setHashValue_61cbe215_internal_macro$
 
 .macro setHashValue_61cbe215_internal_macro
-.loc ../contracts/Sample.tsol, 174
+.loc ../contracts/Sample.tsol, 170
 DEPTH
 ADDCONST -5
 PICK
 EQINT -1
 THROWIFNOT 71
-.loc ../contracts/Sample.tsol, 175
+.loc ../contracts/Sample.tsol, 171
 ACCEPT
-.loc ../contracts/Sample.tsol, 176
+.loc ../contracts/Sample.tsol, 172
 CTOS
 SHA256U
 DUP
 SETGLOB 28
-.loc ../contracts/Sample.tsol, 177
+.loc ../contracts/Sample.tsol, 173
 PUSHSLICE xc00000000000000000000000006eae152e
 NEWC
 STSLICE
@@ -709,12 +709,12 @@ SENDRAWMSG
 CALL $setHash_1ed83fd4_internal_macro$
 
 .macro setHash_1ed83fd4_internal_macro
-.loc ../contracts/Sample.tsol, 181
+.loc ../contracts/Sample.tsol, 177
 CTOS
 SHA256U
 DUP
 SETGLOB 28
-.loc ../contracts/Sample.tsol, 182
+.loc ../contracts/Sample.tsol, 178
 PUSHSLICE xc00000000000000000000000006eae152e
 NEWC
 STSLICE
@@ -729,14 +729,14 @@ SENDRAWMSG
 CALL $setState_a9e966b7_internal_macro$
 
 .macro setState_a9e966b7_internal_macro
-.loc ../contracts/Sample.tsol, 186
+.loc ../contracts/Sample.tsol, 182
 DUP
 LESSINT 101
 THROWIFNOT 103
-.loc ../contracts/Sample.tsol, 187
+.loc ../contracts/Sample.tsol, 183
 DUP
 SETGLOB 24
-.loc ../contracts/Sample.tsol, 189
+.loc ../contracts/Sample.tsol, 185
 PUSHSLICE xc0000000000000000000000000633b31a8
 NEWC
 STSLICE
@@ -755,7 +755,7 @@ ISNULL
 IFREF {
 	CALL $c4_to_c7$
 }
-.loc ../contracts/Sample.tsol, 192
+.loc ../contracts/Sample.tsol, 188
 LDREF
 ENDS
 .loc ../contracts/Sample.tsol, 0
@@ -790,7 +790,7 @@ IFREF {
 THROW 0
 
 .macro getHash_5b6beeb9_internal_macro
-.loc ../contracts/Sample.tsol, 194
+.loc ../contracts/Sample.tsol, 190
 CTOS
 SHA256U
 .loc ../contracts/Sample.tsol, 0
@@ -804,7 +804,7 @@ ISNULL
 IFREF {
 	CALL $c4_to_c7$
 }
-.loc ../contracts/Sample.tsol, 198
+.loc ../contracts/Sample.tsol, 194
 ENDS
 .loc ../contracts/Sample.tsol, 0
 CALLREF {
@@ -816,7 +816,7 @@ IFREF {
 THROW 0
 
 .macro withdrawFunds_24600fc3_internal_macro
-.loc ../contracts/Sample.tsol, 199
+.loc ../contracts/Sample.tsol, 195
 PUSHINT 30000000000
 PUSHINT 0
 RAWRESERVE
@@ -831,7 +831,7 @@ ISNULL
 IFREF {
 	CALL $c4_to_c7$
 }
-.loc ../contracts/Sample.tsol, 203
+.loc ../contracts/Sample.tsol, 199
 LDREF
 ENDS
 .loc ../contracts/Sample.tsol, 0
@@ -866,10 +866,10 @@ IFREF {
 THROW 0
 
 .macro checkHashMap_0dda9567_internal_macro
-.loc ../contracts/Sample.tsol, 205
+.loc ../contracts/Sample.tsol, 201
 CTOS
 SHA256U
-.loc ../contracts/Sample.tsol, 207
+.loc ../contracts/Sample.tsol, 203
 PUSHINT 33
 GETGLOBVAR
 PUSHPOW2 8
@@ -877,14 +877,14 @@ DICTUGET
 NULLSWAPIFNOT
 NIP
 PUSHCONT {
-	.loc ../contracts/Sample.tsol, 209
+	.loc ../contracts/Sample.tsol, 205
 	PUSHREF {
 		.blob x53656372657420436f646520697320636f7272656374
 	}
 	.loc ../contracts/Sample.tsol, 0
 }
 PUSHCONT {
-	.loc ../contracts/Sample.tsol, 213
+	.loc ../contracts/Sample.tsol, 209
 	PUSHREF {
 		.blob x53656372657420436f64652069732077726f6e67
 	}
@@ -902,7 +902,7 @@ ISNULL
 IFREF {
 	CALL $c4_to_c7$
 }
-.loc ../contracts/Sample.tsol, 219
+.loc ../contracts/Sample.tsol, 215
 LDREF
 ENDS
 .loc ../contracts/Sample.tsol, 0
@@ -937,10 +937,10 @@ IFREF {
 THROW 0
 
 .macro getTransferIndex_491855f9_internal_macro
-.loc ../contracts/Sample.tsol, 221
+.loc ../contracts/Sample.tsol, 217
 CTOS
 SHA256U
-.loc ../contracts/Sample.tsol, 223
+.loc ../contracts/Sample.tsol, 219
 DUP
 PUSHINT 33
 GETGLOBVAR
@@ -949,7 +949,7 @@ DICTUGET
 NULLSWAPIFNOT
 NIP
 PUSHCONT {
-	.loc ../contracts/Sample.tsol, 225
+	.loc ../contracts/Sample.tsol, 221
 	PUSHINT 33
 	GETGLOBVAR
 	PUSHPOW2 8
@@ -962,7 +962,7 @@ PUSHCONT {
 	.loc ../contracts/Sample.tsol, 0
 }
 PUSHCONT {
-	.loc ../contracts/Sample.tsol, 229
+	.loc ../contracts/Sample.tsol, 225
 	DROP
 	PUSHINT 0
 	.loc ../contracts/Sample.tsol, 0
@@ -979,7 +979,7 @@ ISNULL
 IFREF {
 	CALL $c4_to_c7$
 }
-.loc ../contracts/Sample.tsol, 234
+.loc ../contracts/Sample.tsol, 230
 LDREF
 ENDS
 .loc ../contracts/Sample.tsol, 0
@@ -1014,10 +1014,10 @@ IFREF {
 THROW 0
 
 .macro getAmount_e35cf0ca_internal_macro
-.loc ../contracts/Sample.tsol, 236
+.loc ../contracts/Sample.tsol, 232
 CTOS
 SHA256U
-.loc ../contracts/Sample.tsol, 238
+.loc ../contracts/Sample.tsol, 234
 DUP
 PUSHINT 33
 GETGLOBVAR
@@ -1026,7 +1026,7 @@ DICTUGET
 NULLSWAPIFNOT
 NIP
 PUSHCONT {
-	.loc ../contracts/Sample.tsol, 240
+	.loc ../contracts/Sample.tsol, 236
 	PUSHINT 33
 	GETGLOBVAR
 	PUSHPOW2 8
@@ -1036,7 +1036,7 @@ PUSHCONT {
 		PLDU 256
 	}
 	IF
-	.loc ../contracts/Sample.tsol, 241
+	.loc ../contracts/Sample.tsol, 237
 	PUSHINT 32
 	GETGLOBVAR
 	SECOND
@@ -1047,7 +1047,7 @@ PUSHCONT {
 	.loc ../contracts/Sample.tsol, 0
 }
 PUSHCONT {
-	.loc ../contracts/Sample.tsol, 245
+	.loc ../contracts/Sample.tsol, 241
 	DROP
 	PUSHINT 0
 	.loc ../contracts/Sample.tsol, 0
@@ -1064,7 +1064,7 @@ ISNULL
 IFREF {
 	CALL $c4_to_c7$
 }
-.loc ../contracts/Sample.tsol, 249
+.loc ../contracts/Sample.tsol, 245
 LDREF
 ENDS
 .loc ../contracts/Sample.tsol, 0
@@ -1082,20 +1082,20 @@ THROW 0
 CALL $withDrawTokens_17bb2ada_internal_macro$
 
 .macro withDrawTokens_17bb2ada_internal_macro
-.loc ../contracts/Sample.tsol, 249
+.loc ../contracts/Sample.tsol, 245
 DEPTH
 ADDCONST -5
 PICK
 EQINT -1
 THROWIFNOT 71
-.loc ../contracts/Sample.tsol, 257
+.loc ../contracts/Sample.tsol, 253
 ACCEPT
-.loc ../contracts/Sample.tsol, 259
+.loc ../contracts/Sample.tsol, 255
 CTOS
 SHA256U
-.loc ../contracts/Sample.tsol, 260
+.loc ../contracts/Sample.tsol, 256
 PUSHINT 0
-.loc ../contracts/Sample.tsol, 261
+.loc ../contracts/Sample.tsol, 257
 OVER
 PUSHINT 33
 GETGLOBVAR
@@ -1104,7 +1104,7 @@ DICTUGET
 NULLSWAPIFNOT
 NIP
 PUSHCONT {
-	.loc ../contracts/Sample.tsol, 263
+	.loc ../contracts/Sample.tsol, 259
 	OVER
 	PUSHINT 33
 	GETGLOBVAR
@@ -1115,7 +1115,7 @@ PUSHCONT {
 		PLDU 256
 	}
 	IF
-	.loc ../contracts/Sample.tsol, 264
+	.loc ../contracts/Sample.tsol, 260
 	PUSHINT 32
 	GETGLOBVAR
 	SECOND
@@ -1127,15 +1127,15 @@ PUSHCONT {
 	.loc ../contracts/Sample.tsol, 0
 }
 IF
-.loc ../contracts/Sample.tsol, 269
+.loc ../contracts/Sample.tsol, 265
 DROP2
 PUSHINT 10000
-.loc ../contracts/Sample.tsol, 271
+.loc ../contracts/Sample.tsol, 267
 DUP
 GETGLOB 25
 GREATER
 PUSHCONT {
-	.loc ../contracts/Sample.tsol, 272
+	.loc ../contracts/Sample.tsol, 268
 	GETGLOB 9
 	NEWC
 	STSLICECONST x42_
@@ -1144,10 +1144,10 @@ PUSHCONT {
 	STZEROES
 }
 PUSHCONT {
-	.loc ../contracts/Sample.tsol, 274
+	.loc ../contracts/Sample.tsol, 270
 	PUSHREF {
 	}
-	.loc ../contracts/Sample.tsol, 276
+	.loc ../contracts/Sample.tsol, 272
 	FALSE
 	GETGLOB 9
 	PUSHINT 100000000
@@ -1177,7 +1177,7 @@ IFELSE
 ENDC
 PUSHPOW2 7
 SENDRAWMSG
-.loc ../contracts/Sample.tsol, 285
+.loc ../contracts/Sample.tsol, 281
 DROP
 PUSHINT 3000000000
 PUSHINT 0
@@ -1193,7 +1193,7 @@ ISNULL
 IFREF {
 	CALL $c4_to_c7$
 }
-.loc ../contracts/Sample.tsol, 288
+.loc ../contracts/Sample.tsol, 284
 OVER
 PUSHCONT {
 	LDREF
@@ -1213,21 +1213,21 @@ IFREF {
 THROW 0
 
 .macro purchaseTokens_b83dd338_internal_macro
-.loc ../contracts/Sample.tsol, 289
+.loc ../contracts/Sample.tsol, 285
 ACCEPT
-.loc ../contracts/Sample.tsol, 290
+.loc ../contracts/Sample.tsol, 286
 GETGLOB 26
 MUL
 UFITS 128
-.loc ../contracts/Sample.tsol, 291
+.loc ../contracts/Sample.tsol, 287
 DROP
 PUSHINT 10000
-.loc ../contracts/Sample.tsol, 292
+.loc ../contracts/Sample.tsol, 288
 DUP
 GETGLOB 25
 GREATER
 PUSHCONT {
-	.loc ../contracts/Sample.tsol, 293
+	.loc ../contracts/Sample.tsol, 289
 	GETGLOB 9
 	NEWC
 	STSLICECONST x42_
@@ -1236,10 +1236,10 @@ PUSHCONT {
 	STZEROES
 }
 PUSHCONT {
-	.loc ../contracts/Sample.tsol, 295
+	.loc ../contracts/Sample.tsol, 291
 	PUSHREF {
 	}
-	.loc ../contracts/Sample.tsol, 297
+	.loc ../contracts/Sample.tsol, 293
 	FALSE
 	GETGLOB 9
 	PUSHINT 100000000
@@ -1269,7 +1269,7 @@ IFELSE
 ENDC
 PUSHPOW2 7
 SENDRAWMSG
-.loc ../contracts/Sample.tsol, 306
+.loc ../contracts/Sample.tsol, 302
 DROP
 PUSHINT 30000000000
 PUSHINT 0
