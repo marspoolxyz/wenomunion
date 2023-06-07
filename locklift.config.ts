@@ -103,7 +103,7 @@ const config: LockliftConfig = {
       },
       giver: {
         address: "0:061e4c99f5e66134811cafe51796de1b4536526c9454da7823b8459e45d3cc07",
-        phrase: "pool next club potato behind theory supply either slush fresh attend swim",
+        phrase: "pool pool pool potato pool pool pool pool pool pool pool pool",
         accountId: 0,
       },
       tracing: {
@@ -112,7 +112,7 @@ const config: LockliftConfig = {
       keys: {
         // Use everdev to generate your phrase
         // !!! Never commit it in your repos !!!
-        phrase: "pool next club potato behind theory supply either slush fresh attend swim",
+        phrase: "pool pool pool potato pool pool pool pool pool pool pool pool",
         amount: 20,
       },
     },
@@ -139,7 +139,7 @@ const config: LockliftConfig = {
       keys: {
         // Use everdev to generate your phrase
         // !!! Never commit it in your repos !!!
-        phrase: "awful copper marine decide outside caught opinion quit rib concert six rare",
+        phrase: "pool pool pool potato pool pool pool pool pool pool pool pool",
         amount: 20,
       },
     },
