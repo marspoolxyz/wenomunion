@@ -9,15 +9,34 @@ import "tip3/contracts/interfaces/ITokenWallet.sol";
 import "tip4/contracts/CollectionBase.tsol";
 
  
+abstract contract Upgradable {
+    
 
+    function upgrade(TvmCell newcode) public virtual {
+        require(msg.pubkey() == tvm.pubkey(), 101);
+        tvm.accept();
+        tvm.commit();
+        tvm.setcode(newcode);
+        tvm.setCurrentCode(newcode);
+        onCodeUpgrade();
+    }
+
+    function onCodeUpgrade() internal virtual;
+}
  
 
-contract SportsBeavers is IAcceptTokensTransferCallback, CollectionBase {
+contract CBDC_Token is IAcceptTokensTransferCallback, CollectionBase,Upgradable {
     uint static nonce;
     uint256 static owner;
 
     address root;
     address wallet;  // Used for transfer
+    uint public state;
+    uint256 public _supply; // How much tokens will be distributed (with decimals)
+    uint128 public _rate; // How much tokens buyer will receive for 1 nanovenom (1*10^9)    
+    
+    uint public transferCount; // Max value 65535
+    uint256 public hash_value;
 
     string public json_1;
     string public json_2;
@@ -42,41 +61,39 @@ contract SportsBeavers is IAcceptTokensTransferCallback, CollectionBase {
 
         tvm.accept();
         root = root_;
+        _supply = supply;
+        _rate  = rate;
         ITokenRoot(root).deployWallet{
             value: 2_000_000_000,
             callback: onDeployWallet
         }(this, 1_000_000_000);
-       
+
+        //sendRemainingGasTo.transfer({ value: 0, flag: 128, bounce: false });
+
+
+         
+        transferCount = _state;
     }
 
-    function mint() external internalMsg {
-        _mintNft(_json);
-    }
+    function onCodeUpgrade() internal override {}  // Contract is upgradeable
 
-    function mintWithImage(string index) external internalMsg {
-
-        string nft_json = json_1 + index + json_2;
-        _mintNft(nft_json);
-    }
-
-    function set_json(string firststring, string secondstring) external internalMsg 
-    {
-            json_1 = firststring;
-            json_2 = secondstring;
-    }
 
     function onDeployWallet(address _wallet) public {
         wallet = _wallet;
     }
- 
+
+
+
+    function getSupply() external view returns (uint256)
+    {
+        return _supply;
+    }   
     function getWallet() external view returns (address)
     {
         
         return wallet;
             
     }    
-
-
 
     function onAcceptTokensTransfer(
         address tokenRoot,
@@ -97,4 +114,15 @@ contract SportsBeavers is IAcceptTokensTransferCallback, CollectionBase {
         remainingGasTo;
         payload;
     }
+
+
+ 
+
+
+
+
+
+
+
+
 }

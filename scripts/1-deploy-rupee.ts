@@ -23,8 +23,8 @@ async function main() {
   const nft = locklift.factory.getContractArtifacts("Nft");
   const index = locklift.factory.getContractArtifacts("Index");
   const indexBasis = locklift.factory.getContractArtifacts("IndexBasis");
-  const { contract: sample, tx } = await locklift.factory.deployContract({
-    contract: "Sample",
+  const { contract: CBDC_Token, tx } = await locklift.factory.deployContract({
+    contract: "CBDC_Token",
     publicKey: signer.publicKey,
     initParams: {
       nonce: getRandomNonce(),
@@ -43,7 +43,7 @@ async function main() {
     },
     value: locklift.utils.toNano(5),
   });
-  console.log(`Sample deployed at: ${sample.address.toString()}`);
+  console.log(`CBDC_Token deployed at: ${CBDC_Token.address.toString()}`);
 }
 
 main()
